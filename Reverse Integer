@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int reverse(int x) {
+        long revnum = 0;
+        long n = x;
+        if(n<0)
+            n = -n;
+        while(n>0)
+        {
+            int ld = n%10;
+            n /= 10;
+            revnum = (revnum*10)+ld;
+        }   
+        if(revnum > INT_MAX || revnum < INT_MIN)
+            return 0;
+        if(x<0)  
+            return (int)-revnum;
+        return (int)revnum;
+   }
+};
