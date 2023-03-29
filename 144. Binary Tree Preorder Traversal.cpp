@@ -11,6 +11,8 @@
  */
 class Solution {
 public:
+    /*
+    // iterative
     vector<int> preorderTraversal(TreeNode* root) {
 
         vector<int> preord;
@@ -31,5 +33,23 @@ public:
                 st.push(topNode->left);
         }        
         return preord;
+    }
+    */
+    
+    //recursive
+    void traversal(TreeNode* root, vector<int> &preord)
+    {
+        if(root == NULL)
+            return;
+        
+        preord.push_back(root->val);
+        traversal(root->left,preord);
+        traversal(root->right,preord);
+    }
+    vector<int> preorderTraversal(TreeNode* root) {
+        vector<int> preord;
+
+        traversal(root,preord);
+        return preord;        
     }
 };
